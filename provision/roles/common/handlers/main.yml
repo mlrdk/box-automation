@@ -1,7 +1,3 @@
-- name: update grub
-  sudo: yes
-  command: update-grub
-
 - name: restart slim
   sudo: yes
   service:
@@ -16,3 +12,9 @@
     enabled: yes
     state: restarted
 
+- name: restart wicd
+  sudo: yes
+  service:
+    name: wicd
+    enabled: yes
+    state: restarted

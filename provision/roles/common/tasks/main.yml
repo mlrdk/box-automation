@@ -3,23 +3,26 @@
   apt:
     update_cache: yes
 
-- name: install repository packages
-  sudo: yes
-  with_items: repository_packages
-  apt:
-    pkg: "{{ item.name }}"
-    dpkg_options: 'allow-unauthenticated'
-    state: latest
-
-- name: update apt
-  sudo: yes
-  apt:
-    update_cache: yes
-
 - name: update all packages to the latest version
   sudo: yes
   apt:
     upgrade: dist
+
+- name: remove loclatime
+  sudo: yes
+  file:
+    dest: /etc/localtime
+    state: absent
+
+- name: set time zone
+  sudo: yes
+  file:
+    src: /usr/share/zoneinfo/Europe/Belgrade
+    dest: /etc/localtime
+    owner: root
+    group: root
+    state: link
+    force: yes
 
 - name: install packages
   sudo: yes
@@ -30,24 +33,41 @@
   notify:
     - restart openntpd
 
-- name: install pip3 packages
+- name: download packages
   sudo: yes
-  with_items: pip3_packages
-  pip:
-    executable: pip3
-    name: "{{ item.name }}"
-    state: latest
+  with_items: common_url_packages
+  get_url:
+    url: "{{ item.url }}"
+    dest: "/var/cache/apt/archives/{{ item.name }}.deb"
 
-- name: configure grub
+- name: prepare install script
   sudo: yes
-  copy:
-    src: grub
-    dest: /etc/default/grub
+  template:
+    src: install.sh.j2
+    dest: /tmp/install.sh
     owner: root
     group: root
-    mode: 0644
-  notify:
-    - update grub
+    mode: 0700
+
+- name: install packages
+  sudo: yes
+  with_items: common_url_packages
+  command: "/tmp/install.sh /var/cache/apt/archives/{{ item.name }}.deb"
+  args:
+    creates: "/usr/bin/{{ item.name }}"
+
+- name: update apt-file
+  sudo: yes
+  command: apt-file update
+  args:
+    creates: /var/cache/apt/apt-file/ftp.de.debian.org_debian_dists_jessie_main_Contents-amd64.gz
+
+- name: disable system wide mpd
+  sudo: yes
+  service:
+    name: mpd
+    enabled: no
+    state: stopped
 
 - name: configure slim
   sudo: yes
@@ -59,28 +79,84 @@
   notify:
     - restart slim
 
-- name: enable slim
-  sudo: yes
-  service:
-    name: slim
-    enabled: yes
-    state: started
-
-- name: make chromium work in incognito
+- name: configure trackpoint in X
   sudo: yes
   template:
-    src: default.j2
-    dest: /etc/chromium-browser/default
+    src: 20-thinkpad.conf.j2
+    dest: /usr/share/X11/xorg.conf.d/20-thinkpad.conf
+    owner: root
+    group: root
+  notify:
+    - restart slim
+
+- name: configure chromium
+  sudo: yes
+  with_items: common_chromium_config
+  template:
+    src: "chromium/{{ item.name }}"
+    dest: "/etc/chromium.d/{{ item.name }}"
     owner: root
     group: root
 
-- name: update apt-file
+- name: download taskwarrior
   sudo: yes
-  command: apt-file update
+  get_url:
+    url: "http://taskwarrior.org/download/task-{{ taskwarrior_version }}.tar.gz"
+    dest: /var/cache/apt/taskwarrior.tar.gz
+    sha256sum: "d90e48c64639957b02f6e9a33cddd5411169003ca3b1f9351d0fcf3c3597c2e2"
 
-- name: disable system wide mpd
+- name: unpack taskwarrior
   sudo: yes
-  service:
-    name: mpd
-    enabled: no
-    state: stopped
+  unarchive:
+    src: /var/cache/apt/taskwarrior.tar.gz
+    dest: /var/cache
+    copy: no
+    creates: /var/cache/apt/task-{{ taskwarrior_version }}
+
+- name: prepare to compile taskwarrior
+  sudo: yes
+  command: cmake -DCMAKE_BUILD_TYPE=release .
+  args:
+    chdir: /var/cache/task-{{ taskwarrior_version }}
+    creates: /var/cache/task-{{ taskwarrior_version }}/src/task
+
+- name: compile taskwarrior
+  sudo: yes
+  command: make
+  args:
+    chdir: /var/cache/task-{{ taskwarrior_version }}
+    creates: /var/cache/task-{{ taskwarrior_version }}/src/task
+
+- name: install taskwarrior
+  sudo: yes
+  command: make install
+  args:
+    chdir: /var/cache/task-{{ taskwarrior_version }}
+    creates: /usr/local/bin/task
+
+- name: configure wicd
+  sudo: yes
+  template:
+    src: manager-settings.conf.j2
+    dest: /etc/wicd/manager-settings.conf
+    owner: root
+    group: root
+    mode: 0600
+  notify:
+    - restart wicd
+
+- name: create /mnt/usb
+  sudo: yes
+  file:
+    path: /mnt/usb
+    owner: root
+    group: root
+    state: directory
+
+- name: configure realtime permissions
+  sudo: yes
+  template:
+    src: audio.conf.j2
+    dest: /etc/security/limits.d/audio.conf
+    owner: root
+    group: root

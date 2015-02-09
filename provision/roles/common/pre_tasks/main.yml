@@ -1,16 +1,20 @@
+- name: configure sources.list
+  sudo: yes
+  template:
+    src: sources.list.j2
+    dest: /etc/apt/sources.list
+    owner: root
+    group: root
+
 - name: update apt
   sudo: yes
   apt:
     update_cache: yes
     cache_valid_time: 3600
 
-- name: disable suggested and recommended packages
+- name: make everything ok
   sudo: yes
-  copy:
-    src: apt.conf
-    dest: /etc/apt/apt.conf
-    owner: root
-    group: root
+  command: apt-get install -fy --force-yes
 
 - name: install packages
   sudo: yes
@@ -18,26 +22,3 @@
   apt:
     pkg: "{{ item.name }}"
     state: latest
-
-- name: add i386 architecture
-  sudo: yes
-  command: dpkg --add-architecture i386
-
-- name: add ppa repositories
-  sudo: yes
-  with_items: ppa_repositories
-  command: add-apt-repository -y "{{ item.name }}" creates="/etc/apt/sources.list.d/{{ item.creates }}"
-
-- name: add deb repositories
-  sudo: yes
-  with_items: deb_repositories
-  apt_repository:
-    repo: "{{ item.name }}"
-    state: present
-
-- name: add docker repo key
-  sudo: yes
-  apt_key:
-    id: 36A1D7869245C8950F966E92D8576A8BA88D21E9
-    keyserver: keyserver.ubuntu.com
-    state: present
