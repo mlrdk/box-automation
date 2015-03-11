@@ -13,6 +13,7 @@ common_packages:
   - name: elinks
   - name: evince
   - name: firmware-iwlwifi
+  - name: flashplugin-nonfree
   - name: geeqie
   - name: gimp
   - name: git-core
@@ -21,6 +22,8 @@ common_packages:
   - name: hplip
   - name: htop
   - name: i3
+  - name: iceweasel
+  - name: iceweasel-vimperator
   - name: inkscape
   - name: iptables
   - name: ladish
@@ -79,6 +82,7 @@ common_packages:
   - name: xautolock
   - name: xinit
   - name: xserver-xorg
+  - name: xul-ext-adblock-plus
 
 pretask_packages:
   - name: python-apt
