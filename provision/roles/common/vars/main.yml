@@ -35,6 +35,8 @@ common_packages:
   - name: libpango1.0-dev
   - name: libxft-dev
   - name: libxinerama-dev
+  - name: libxml2-dev
+  - name: libxslt1-dev
   - name: mpd
   - name: mplayer
   - name: mumble

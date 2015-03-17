@@ -33,6 +33,15 @@
   notify:
     - restart openntpd
 
+- name: link libxml include files
+  sudo: yes
+  file:
+    src: /usr/include/libxml2/libxml
+    dest: /usr/include/libxml
+    owner: root
+    group: root
+    state: link
+
 - name: download packages
   sudo: yes
   with_items: common_url_packages
