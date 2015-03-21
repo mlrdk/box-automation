@@ -136,3 +136,11 @@
     owner: meka
     group: meka
     state: directory
+
+- name: configure vimperator
+  sudo: yes
+  template:
+    src: vimperatorrc.j2
+    dest: ~meka/.vimperatorrc
+    owner: meka
+    group: meka
