@@ -101,7 +101,7 @@
   args:
     creates: ~/Files/repos/dotfiles/vim/bin/init.sh
 
-- name: get dotfilees submodules
+- name: get dotfiles submodules
   sudo: yes
   sudo_user: meka
   command: git submodule update --init
