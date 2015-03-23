@@ -37,6 +37,7 @@ common_packages:
   - name: libxinerama-dev
   - name: libxml2-dev
   - name: libxslt1-dev
+  - name: liferea
   - name: mpd
   - name: mplayer
   - name: mumble
