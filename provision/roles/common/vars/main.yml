@@ -67,6 +67,7 @@ common_packages:
   - name: sshpass
   - name: strace
   - name: suckless-tools
+  - name: synergy
   - name: syslog-ng-core
   - name: sysstat
   - name: smplayer
