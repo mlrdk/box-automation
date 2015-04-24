@@ -12,6 +12,7 @@ common_packages:
   - name: dbus-x11
   - name: elinks
   - name: evince
+  - name: fakeroot
   - name: firmware-iwlwifi
   - name: flashplugin-nonfree
   - name: geeqie
@@ -26,10 +27,12 @@ common_packages:
   - name: iceweasel-vimperator
   - name: inkscape
   - name: iptables
+  - name: kernel-package
   - name: ladish
   - name: laditools
   - name: libcurl4-openssl-dev
   - name: libgnutls28-dev
+  - name: libncurses5-dev
   - name: libnotify-bin
   - name: libreoffice
   - name: libpango1.0-dev
@@ -71,6 +74,7 @@ common_packages:
   - name: syslog-ng-core
   - name: sysstat
   - name: smplayer
+  - name: tcpdump
   - name: tmux
   - name: tor
   - name: unclutter
