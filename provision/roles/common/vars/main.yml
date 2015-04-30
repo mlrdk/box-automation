@@ -48,6 +48,7 @@ common_packages:
   - name: ncmpcpp
   - name: nmap
   - name: npm
+  - name: notmuch-vim
   - name: offlineimap
   - name: openntpd
   - name: pepperflashplugin-nonfree
