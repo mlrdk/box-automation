@@ -12,6 +12,7 @@ common_packages:
   - name: dbus-x11
   - name: elinks
   - name: evince
+  - name: exuberant-ctags
   - name: fakeroot
   - name: firmware-iwlwifi
   - name: flashplugin-nonfree
