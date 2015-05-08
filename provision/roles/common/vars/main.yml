@@ -15,6 +15,7 @@ common_packages:
   - name: exuberant-ctags
   - name: fakeroot
   - name: firmware-iwlwifi
+  - name: fish
   - name: flashplugin-nonfree
   - name: geeqie
   - name: gimp
@@ -48,6 +49,7 @@ common_packages:
   - name: mutt-patched
   - name: ncmpcpp
   - name: nmap
+  - name: nodejs-legacy
   - name: npm
   - name: notmuch-vim
   - name: offlineimap
@@ -106,9 +108,6 @@ common_url_packages:
   - url: 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
     name: google-chrome
     sha256sum: '0a1f0a1ff5b4472430b69f48ab77bf9f535a5a87074d15410ea017d796831544'
-  - url: 'http://download.opensuse.org/repositories/shells:/fish:/release:/2/Debian_7.0/amd64/fish_2.1.1-1_amd64.deb'
-    name: fish
-    sha256sum: '35603c15a479940bea0dd1b89e7bf791181ce88f2a0eb017f2bbd253d3dc3e6c'
 
 common_chromium_config:
   - name: incognito

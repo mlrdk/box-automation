@@ -112,7 +112,7 @@
   get_url:
     url: "http://taskwarrior.org/download/task-{{ taskwarrior_version }}.tar.gz"
     dest: /var/cache/apt/taskwarrior.tar.gz
-    sha256sum: "d90e48c64639957b02f6e9a33cddd5411169003ca3b1f9351d0fcf3c3597c2e2"
+    sha256sum: "{{ taskwarrior_sh256sum }}"
 
 - name: unpack taskwarrior
   sudo: yes
