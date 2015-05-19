@@ -29,7 +29,6 @@ common_packages:
   - name: iceweasel-vimperator
   - name: inkscape
   - name: iptables
-  - name: kernel-package
   - name: ladish
   - name: laditools
   - name: libcurl4-openssl-dev
@@ -74,6 +73,7 @@ common_packages:
   - name: sshpass
   - name: strace
   - name: suckless-tools
+  - name: syncthing
   - name: synergy
   - name: syslog-ng-core
   - name: sysstat

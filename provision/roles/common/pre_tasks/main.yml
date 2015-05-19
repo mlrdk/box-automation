@@ -6,6 +6,20 @@
     owner: root
     group: root
 
+- name: add syncthing key
+  sudo: yes
+  apt_key:
+    url: https://syncthing.net/release-key.txt
+    state: present
+
+- name: add syncthing repo
+  sudo: yes
+  template:
+    src: syncthing.list.j2
+    dest: /etc/apt/sources.list.d/syncthing.list
+    owner: root
+    group: root
+
 - name: update apt
   sudo: yes
   apt:
