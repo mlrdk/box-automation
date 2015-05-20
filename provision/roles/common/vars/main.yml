@@ -67,6 +67,7 @@ common_packages:
   - name: ruby
   - name: ruby-dev
   - name: rxvt-unicode-256color
+  - name: scrot
   - name: silversearcher-ag
   - name: slim
   - name: sox
