@@ -10,6 +10,7 @@ common_packages:
   - name: cmake
   - name: curl
   - name: dbus-x11
+  - name: drumgizmo
   - name: elinks
   - name: evince
   - name: exuberant-ctags
@@ -70,6 +71,7 @@ common_packages:
   - name: scrot
   - name: silversearcher-ag
   - name: slim
+  - name: smplayer
   - name: sox
   - name: sshpass
   - name: strace
@@ -78,7 +80,6 @@ common_packages:
   - name: synergy
   - name: syslog-ng-core
   - name: sysstat
-  - name: smplayer
   - name: tcpdump
   - name: tmux
   - name: tor

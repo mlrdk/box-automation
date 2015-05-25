@@ -20,6 +20,18 @@
     owner: root
     group: root
 
+- name: download kxstudio-repos
+  sudo: yes
+  get_url:
+    url: https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_8.2.1~kxstudio1_all.deb
+    dest: /root/kxstudio-repos.deb
+    sha256sum: 739336d1e621c7e6553f0c46baabefeafa5eb75af126c104826e02252f20db55
+
+- name: install kxstudio-repos
+  sudo: yes
+  apt:
+    deb: /root/kxstudio-repos.deb
+
 - name: update apt
   sudo: yes
   apt:
