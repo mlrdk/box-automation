@@ -1,6 +1,17 @@
 - hosts: all
+
   pre_tasks:
     - include: roles/common/pre_tasks/main.yml
+
   roles:
     - common
     - users
+
+  vars_prompt:
+    - name: "mail_password"
+      prompt: "Enter your mail password"
+      private: yes
+
+    - name: "irc_password"
+      prompt: "Enter your irc password"
+      private: yes

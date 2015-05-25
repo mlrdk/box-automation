@@ -144,3 +144,27 @@
     dest: ~meka/.vimperatorrc
     owner: meka
     group: meka
+
+- name: configure netrc
+  sudo: yes
+  template:
+    src: netrc.j2
+    dest: ~meka/.netrc
+    owner: meka
+    group: meka
+
+- name: set mail password
+  sudo: yes
+  template:
+    src: lugons.password.j2
+    dest: ~meka/.mutt/conf/lugons.password
+    owner: meka
+    group: meka
+
+- name: set irc password
+  sudo: yes
+  template:
+    src: irc.conf.j2
+    dest: ~meka/.weechat/irc.conf
+    owner: meka
+    group: meka
