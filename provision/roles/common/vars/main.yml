@@ -29,6 +29,7 @@ common_packages:
   - name: iceweasel
   - name: iceweasel-vimperator
   - name: inkscape
+  - name: inotify-tools
   - name: iptables
   - name: ladish
   - name: laditools
