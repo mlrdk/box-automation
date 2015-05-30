@@ -85,6 +85,7 @@ common_packages:
   - name: tor
   - name: unclutter
   - name: unp
+  - name: unzip
   - name: uuid-dev
   - name: vim-gtk
   - name: virtualbox
