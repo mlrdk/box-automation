@@ -23,6 +23,7 @@ common_packages:
   - name: git-core
   - name: gpm
   - name: guitarix
+  - name: haveged
   - name: hplip
   - name: htop
   - name: i3
