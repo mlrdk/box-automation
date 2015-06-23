@@ -46,6 +46,7 @@ common_packages:
   - name: liferea
   - name: mpd
   - name: mplayer
+  - name: mpv
   - name: mumble
   - name: mutt-patched
   - name: ncmpcpp
