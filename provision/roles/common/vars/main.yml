@@ -23,6 +23,7 @@ common_packages:
   - name: git-core
   - name: gpm
   - name: guitarix
+  - name: haveged
   - name: hplip
   - name: htop
   - name: i3
@@ -44,6 +45,7 @@ common_packages:
   - name: libxml2-dev
   - name: libxslt1-dev
   - name: liferea
+  - name: minicom
   - name: mpd
   - name: mplayer
   - name: mpv
@@ -87,6 +89,7 @@ common_packages:
   - name: tor
   - name: unclutter
   - name: unp
+  - name: unzip
   - name: uuid-dev
   - name: vim-gtk
   - name: virtualbox
@@ -99,6 +102,7 @@ common_packages:
   - name: xinit
   - name: xserver-xorg
   - name: xul-ext-adblock-plus
+  - name: xul-ext-firebug
 
 pretask_packages:
   - name: python-apt
