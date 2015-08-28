@@ -6,26 +6,28 @@
     owner: root
     group: root
 
-- name: add syncthing key
+- name: configure sources
   sudo: yes
-  apt_key:
-    url: https://syncthing.net/release-key.txt
-    state: present
-
-- name: add syncthing repo
-  sudo: yes
+  with_items: "{{ common_sources_list }}"
   template:
-    src: syncthing.list.j2
-    dest: /etc/apt/sources.list.d/syncthing.list
+    src: "{{ item.name }}.list.j2"
+    dest: /etc/apt/sources.list.d/{{ item.name }}.list
     owner: root
     group: root
+
+- name: add keys
+  sudo: yes
+  with_items: "{{ common_sources_list }}"
+  apt_key:
+    url: "{{ item.key_url }}"
+    state: present
 
 - name: download kxstudio-repos
   sudo: yes
   get_url:
-    url: https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_8.2.1~kxstudio1_all.deb
+    url: https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_9.1.0~kxstudio1_all.deb
     dest: /root/kxstudio-repos.deb
-    sha256sum: 739336d1e621c7e6553f0c46baabefeafa5eb75af126c104826e02252f20db55
+    sha256sum: 4bd1868cdb9a71c3d94a27020acef02bfe7a1584b4c1f227f6ea86466f143fbc
 
 - name: install kxstudio-repos
   sudo: yes

@@ -5,3 +5,7 @@ user_pip_packages:
 user_gem_packages:
   - name: jekyll
   - name: jekyll-sitemap
+
+user_configs:
+  - name: .gnupg
+  - name: .ssh

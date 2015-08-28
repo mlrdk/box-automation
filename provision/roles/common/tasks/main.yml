@@ -48,6 +48,7 @@
   get_url:
     url: "{{ item.url }}"
     dest: "/var/cache/apt/archives/{{ item.name }}.deb"
+    sha256sum: "{{ item.sha256sum }}"
 
 - name: prepare install script
   sudo: yes

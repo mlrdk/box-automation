@@ -4,9 +4,11 @@ common_packages:
   - name: alsa-utils
   - name: apt-file
   - name: arandr
-  - name: ardour3
+  - name: ardour4
   - name: autoconf
+  - name: carla
   - name: chromium
+  - name: claudia
   - name: cmake
   - name: curl
   - name: dbus-x11
@@ -46,8 +48,7 @@ common_packages:
   - name: libxslt1-dev
   - name: liferea
   - name: minicom
-  - name: mpd
-  - name: mplayer
+  - name: mopidy-youtube
   - name: mpv
   - name: mumble
   - name: mutt-patched
@@ -68,6 +69,7 @@ common_packages:
   - name: python-virtualenv
   - name: python-xdg
   - name: python3-pip
+  - name: qtractor
   - name: rtorrent
   - name: ruby
   - name: ruby-dev
@@ -75,7 +77,6 @@ common_packages:
   - name: scrot
   - name: silversearcher-ag
   - name: slim
-  - name: smplayer
   - name: sox
   - name: sshpass
   - name: strace
@@ -92,7 +93,7 @@ common_packages:
   - name: unzip
   - name: uuid-dev
   - name: vim-gtk
-  - name: virtualbox
+  - name: virtualbox-5.0
   - name: wajig
   - name: weechat
   - name: weechat-scripts
@@ -110,13 +111,18 @@ pretask_packages:
   - name: software-properties-common
 
 common_url_packages:
-  - url: 'https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb'
+  - url: 'https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb'
     name: vagrant
-    sha256sum: '9d7f1c587134011e2d5429eb21b6c0e95487f52e6d6d47c03ecc82cbeee73968'
-  - url: 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-    name: google-chrome
-    sha256sum: '0a1f0a1ff5b4472430b69f48ab77bf9f535a5a87074d15410ea017d796831544'
+    sha256sum: 'dcd2c2b5d7ae2183d82b8b363979901474ba8d2006410576ada89d7fa7668336'
 
 common_chromium_config:
   - name: incognito
   - name: tor
+
+common_sources_list:
+  - name: mopidy
+    key_url: https://apt.mopidy.com/mopidy.gpg
+  - name: syncthing
+    key_url: https://syncthing.net/release-key.txt
+  - name: virtualbox
+    key_url: https://www.virtualbox.org/download/oracle_vbox.asc

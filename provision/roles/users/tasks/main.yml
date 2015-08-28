@@ -6,6 +6,24 @@
     groups: "audio,video,sudo"
     append: yes
 
+- name: ensure ~/Files exists
+  sudo: yes
+  sudo_user: meka
+  file:
+    path: ~/Files
+    state: directory
+
+- name: link configs
+  sudo: yes
+  with_items: user_configs
+  file:
+    src: "~meka/Files/{{ item.name }}"
+    dest: "~meka/{{ item.name }}"
+    owner: meka
+    group: meka
+    force: yes
+    state: link
+
 - name: configure cron for meka
   sudo: yes
   sudo_user: meka
@@ -71,13 +89,6 @@
   args:
     chdir: ~meka/rofi
     creates: /usr/local/bin/rofi
-
-- name: ensure ~/Files exists
-  sudo: yes
-  sudo_user: meka
-  file:
-    path: ~/Files
-    state: directory
 
 - name: ensure ~/repos exists
   sudo: yes
