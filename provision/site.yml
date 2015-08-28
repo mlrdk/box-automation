@@ -1,3 +1,11 @@
+- hosts: production
+  user: root
+  tasks:
+    - name: install sudo
+      apt:
+        pkg: sudo
+        state: latest
+
 - hosts: all
   pre_tasks:
     - include: roles/common/pre_tasks/main.yml
