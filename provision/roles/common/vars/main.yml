@@ -34,6 +34,7 @@ common_packages:
   - name: inkscape
   - name: inotify-tools
   - name: iptables
+  - name: keepassx
   - name: ladish
   - name: laditools
   - name: libcurl4-openssl-dev
