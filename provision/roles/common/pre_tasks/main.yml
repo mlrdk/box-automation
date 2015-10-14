@@ -25,9 +25,9 @@
 - name: download kxstudio-repos
   sudo: yes
   get_url:
-    url: https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_9.1.0~kxstudio1_all.deb
+    url: https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_9.2.1~kxstudio1_all.deb
     dest: /root/kxstudio-repos.deb
-    sha256sum: 4bd1868cdb9a71c3d94a27020acef02bfe7a1584b4c1f227f6ea86466f143fbc
+    sha256sum: 424336af10f4668dc8c1b11a76ffe40175294ccb25b1a6923aa6d2fa0ce9a65c
 
 - name: install kxstudio-repos
   sudo: yes

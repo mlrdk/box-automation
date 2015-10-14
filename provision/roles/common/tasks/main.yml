@@ -8,6 +8,15 @@
   apt:
     upgrade: dist
 
+- name: keep HOME while sudoing
+  sudo: yes
+  lineinfile:
+    dest: /etc/sudoers
+    regexp: ^Defaults.*env_keep
+    line: Defaults        env_keep="HOME"
+    insertafter: ^Defaults.*secure_path=
+    state: present
+
 - name: remove loclatime
   sudo: yes
   file:
