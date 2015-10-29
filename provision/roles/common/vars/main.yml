@@ -49,9 +49,7 @@ common_packages:
   - name: libxslt1-dev
   - name: liferea
   - name: minicom
-  - name: mopidy-youtube
   - name: mpv
-  - name: mumble
   - name: mutt-patched
   - name: ncmpcpp
   - name: nmap
@@ -61,6 +59,7 @@ common_packages:
   - name: offlineimap
   - name: openntpd
   - name: pepperflashplugin-nonfree
+  - name: pidgin
   - name: pkg-config
   - name: pulseaudio-module-jack
   - name: pv
