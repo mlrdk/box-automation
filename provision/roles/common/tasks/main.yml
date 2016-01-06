@@ -81,13 +81,6 @@
   args:
     creates: /var/cache/apt/apt-file/ftp.de.debian.org_debian_dists_jessie_main_Contents-amd64.gz
 
-- name: disable system wide mpd
-  sudo: yes
-  service:
-    name: mpd
-    enabled: no
-    state: stopped
-
 - name: configure slim
   sudo: yes
   template:

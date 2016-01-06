@@ -25,7 +25,6 @@ common_packages:
   - name: git-core
   - name: gpm
   - name: guitarix
-  - name: haveged
   - name: hplip
   - name: htop
   - name: i3
@@ -43,6 +42,7 @@ common_packages:
   - name: libnotify-bin
   - name: libreoffice
   - name: libpango1.0-dev
+  - name: libstartup-notification0-dev
   - name: libxft-dev
   - name: libxinerama-dev
   - name: libxml2-dev

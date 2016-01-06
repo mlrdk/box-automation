@@ -163,6 +163,7 @@
     dest: ~meka/.netrc
     owner: meka
     group: meka
+    mode: 0600
 
 - name: set mail password
   sudo: yes
