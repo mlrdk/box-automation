@@ -103,7 +103,6 @@ common_packages:
   - name: xinit
   - name: xserver-xorg
   - name: xul-ext-adblock-plus
-  - name: xul-ext-firebug
 
 pretask_packages:
   - name: python-apt
