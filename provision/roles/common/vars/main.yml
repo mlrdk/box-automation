@@ -52,6 +52,7 @@ common_packages:
   - name: mpv
   - name: mutt-patched
   - name: ncmpcpp
+  - name: network-manager-gnome
   - name: nmap
   - name: nodejs-legacy
   - name: npm
@@ -98,7 +99,6 @@ common_packages:
   - name: weechat
   - name: weechat-scripts
   - name: wget
-  - name: wicd-curses
   - name: xautolock
   - name: xinit
   - name: xserver-xorg
