@@ -22,6 +22,7 @@ common_packages:
   - name: flashplugin-nonfree
   - name: geeqie
   - name: gimp
+  - name: gist
   - name: git-core
   - name: gpm
   - name: guitarix
