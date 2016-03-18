@@ -1,14 +1,22 @@
-- hosts: production
-  user: root
-  tasks:
-    - name: install sudo
-      apt:
-        pkg: sudo
-        state: latest
-
-- hosts: all
+---
+- name: Desktop provisioning
+  hosts: localhost
+  connection: local
   pre_tasks:
     - include: roles/common/pre_tasks/main.yml
+    - include: roles/communication/pre_tasks/main.yml
+    - include: roles/audio/pre_tasks/main.yml
+    - include: roles/develop/pre_tasks/main.yml
+    - include: roles/network/pre_tasks/main.yml
   roles:
     - common
-    - users
+    - audio
+    - communication
+    - develop
+    - gui
+    - network
+    - photo
+    - user
+    - utils
+    - video
+    - web

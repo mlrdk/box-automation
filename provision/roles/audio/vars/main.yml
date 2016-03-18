@@ -1,0 +1,28 @@
+---
+audio_gpg_keys:
+  - name: kxstudio
+    key: "F8599E482BD84BD9"
+  - name: falktx
+    key: "2D3445A829213837"
+
+audio_packages:
+  - name: alsa-tools
+  - name: alsa-tools-gui
+  - name: alsa-utils
+  - name: dbus-x11
+  - name: ladish
+  - name: laditools
+  - name: ncmpcpp
+  - name: pulseaudio-module-jack
+  - name: qtractor
+  - name: sox
+
+audio_kxstudio_trusty_packages:
+  - name: ardour4
+  - name: carla
+  - name: claudia
+  - name: guitarix
+  - name: muse
+
+audio_kxstudio_lucid_packages:
+  - name: drumgizmo

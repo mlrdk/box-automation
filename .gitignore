@@ -5,3 +5,4 @@ vagrant_ansible_inventory_*
 *.log
 *.swp
 inventory
+*.retry
