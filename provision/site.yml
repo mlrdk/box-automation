@@ -1,7 +1,6 @@
 ---
 - name: Desktop provisioning
-  hosts: localhost
-  connection: local
+  hosts: all
   pre_tasks:
     - include: roles/common/pre_tasks/main.yml
     - include: roles/communication/pre_tasks/main.yml

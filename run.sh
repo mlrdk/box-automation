@@ -1,16 +1,14 @@
 #!/bin/bash
 
-PYENV_REPO="https://github.com/yyuu/pyenv"
-PYENV_DEST="~/.pyenv"
-PATH="${PYENV_DEST}:${PATH}"
-PYTHON_PYENV_VERSION="2.7.11"
+PATH="${HOME}/.local/bin:${PATH}"
+virtual_env="provision"
+virtual_env_path=~/.virtualenvs/$virtual_env
 
-git clone "${PYENV_REPO}" "${PYENV_DEST}"
-eval "$(pyenv init -)"
-pyenv install "${PYTHON_PYENV_VERSION}"
-pyenv local "${PYTHON_PYENV_VERSION}"
-pip install ansible
-apt-get install -y sudo
-ansible-playbook -i provision/inventory/localhost provision/site.yml --ask-sudo-pass
+apt-get install -y sudo python-pip python-dev sshpass
+pip install --user vex
+vex --make $virtual_env pip install -U pip 
+source $virtual_env_path/bin/activate
+pip install -U ansible
+ansible-playbook -i provision/inventory/localhost provision/site.yml --ask-become-pass --ask-pass
 
-rm -rf "${PYENV_DEST}"
+rm -rf $virtual_env_path

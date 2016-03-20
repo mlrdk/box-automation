@@ -6,6 +6,14 @@
     pkg: "{{ item.name }}"
     state: latest
 
+- name: install develop jessie packages
+  become: yes
+  with_items: "{{ develop_jessie_packages }}"
+  apt:
+    pkg: "{{ item.name }}"
+    default_release: "jessie"
+    state: latest
+
 - name: install develop backports packages
   become: yes
   with_items: "{{ develop_backports_packages }}"
