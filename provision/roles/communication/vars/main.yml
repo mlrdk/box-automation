@@ -1,0 +1,9 @@
+---
+communication_packages:
+  - name: mutt-patched
+  - name: notmuch-vim
+  - name: offlineimap
+
+communication_jessie_packages:
+  - name: weechat
+  - name: weechat-scripts

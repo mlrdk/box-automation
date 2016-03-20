@@ -1,0 +1,26 @@
+---
+develop_packages:
+  - name: arduino
+  - name: cmake
+  - name: curl
+  - name: emacs
+  - name: exuberant-ctags
+  - name: git-core
+  - name: node
+  - name: python-dev
+  - name: python-pip
+  - name: python-virtualenv
+  - name: ruby
+  - name: tmux
+  - name: vim-gtk
+  - name: virtualbox-5.0
+
+develop_backports_packages:
+  - name: docker.io
+
+develop_testing_packages:
+  - name: vagrant
+
+develop_repositories:
+  - name: nodejs
+    key: https://deb.nodesource.com/gpgkey/nodesource.gpg.key

@@ -1,128 +1,23 @@
+---
 common_packages:
-  - name: alsa-tools
-  - name: alsa-tools-gui
-  - name: alsa-utils
-  - name: apt-file
-  - name: arandr
-  - name: arduino
-  - name: autoconf
-  - name: carla
-  - name: chromium
-  - name: claudia
-  - name: cmake
   - name: curl
-  - name: dbus-x11
-  - name: drumgizmo
-  - name: elinks
-  - name: evince
-  - name: exuberant-ctags
-  - name: fakeroot
-  - name: firmware-iwlwifi
-  - name: fish
-  - name: flashplugin-nonfree
-  - name: geeqie
-  - name: gimp
+  - name: apt-file
   - name: gist
-  - name: git-core
   - name: gpm
-  - name: guitarix
   - name: hplip
   - name: htop
-  - name: i3
-  - name: iceweasel
-  - name: iceweasel-vimperator
-  - name: inkscape
   - name: inotify-tools
   - name: iptables
-  - name: keepassx
-  - name: ladish
-  - name: laditools
-  - name: libcurl4-openssl-dev
-  - name: libgnutls28-dev
-  - name: libncurses5-dev
-  - name: libnotify-bin
-  - name: libreoffice
-  - name: libpango1.0-dev
-  - name: libstartup-notification0-dev
-  - name: libxft-dev
-  - name: libxinerama-dev
-  - name: libxml2-dev
-  - name: libxslt1-dev
-  - name: liferea
-  - name: minicom
-  - name: mpv
-  - name: mutt-patched
-  - name: ncmpcpp
-  - name: network-manager-gnome
-  - name: nmap
-  - name: nodejs-legacy
-  - name: npm
-  - name: notmuch-vim
-  - name: offlineimap
-  - name: openntpd
-  - name: pepperflashplugin-nonfree
-  - name: pidgin
-  - name: pkg-config
-  - name: pulseaudio-module-jack
-  - name: pv
-  - name: pwgen
-  - name: python-dev
-  - name: python-pip
-  - name: python-virtualenv
-  - name: python-xdg
-  - name: python3-pip
-  - name: qtractor
-  - name: rtorrent
-  - name: ruby
-  - name: ruby-dev
-  - name: rxvt-unicode-256color
-  - name: scrot
-  - name: silversearcher-ag
-  - name: slim
-  - name: sox
-  - name: sshpass
-  - name: strace
-  - name: suckless-tools
-  - name: syncthing
-  - name: synergy
-  - name: syslog-ng-core
-  - name: sysstat
-  - name: tcpdump
-  - name: tmux
-  - name: tor
-  - name: unclutter
-  - name: unp
-  - name: unzip
-  - name: uuid-dev
-  - name: vim-gtk
-  - name: virtualbox-5.0
-  - name: wajig
-  - name: weechat
-  - name: weechat-scripts
-  - name: wget
-  - name: xautolock
-  - name: xinit
-  - name: xserver-xorg
-  - name: xul-ext-adblock-plus
 
-pretask_packages:
-  - name: python-apt
-  - name: python-pycurl
-  - name: software-properties-common
+common_backports_packages:
+  - name: fish
 
-common_url_packages:
-  - url: 'https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb'
-    name: vagrant
-    sha256sum: 'dcd2c2b5d7ae2183d82b8b363979901474ba8d2006410576ada89d7fa7668336'
-
-common_chromium_config:
-  - name: incognito
-  - name: tor
-
-common_sources_list:
-  - name: mopidy
-    key_url: https://apt.mopidy.com/mopidy.gpg
-  - name: syncthing
-    key_url: https://syncthing.net/release-key.txt
-  - name: virtualbox
-    key_url: https://www.virtualbox.org/download/oracle_vbox.asc
+common_debian_repos:
+  - repo: stable
+    priority: 900
+  - repo: testing
+    priority: 750
+  - repo: unstable
+    priority: 50
+  - repo: experimental
+    priority: 1

@@ -1,0 +1,15 @@
+---
+- name: install communication packages
+  become: yes
+  with_items: "{{ communication_packages }}"
+  apt:
+    pkg: "{{ item.name }}"
+    state: latest
+
+- name: install communication jessie packages
+  become: yes
+  with_items: "{{ communication_jessie_packages }}"
+  apt:
+    pkg: "{{ item.name }}"
+    default_release: jessie
+    state: latest

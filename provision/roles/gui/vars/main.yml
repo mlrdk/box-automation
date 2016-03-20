@@ -1,0 +1,16 @@
+---
+gui_packages:
+  - name: arandr
+  - name: evince
+  - name: i3
+  - name: liferea
+  - name: rxvt-unicode-256color
+  - name: slim
+  - name: synergy
+  - name: unclutter
+  - name: xautolock
+  - name: xinit
+  - name: xserver-xorg
+
+gui_testing_packages:
+  - name: rofi

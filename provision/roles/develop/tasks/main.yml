@@ -1,0 +1,23 @@
+---
+- name: install develop packages
+  become: yes
+  with_items: "{{ develop_packages }}"
+  apt:
+    pkg: "{{ item.name }}"
+    state: latest
+
+- name: install develop backports packages
+  become: yes
+  with_items: "{{ develop_backports_packages }}"
+  apt:
+    pkg: "{{ item.name }}"
+    default_release: "jessie-backports"
+    state: latest
+
+- name: install develop testing packages
+  become: yes
+  with_items: "{{ develop_testing_packages }}"
+  apt:
+    pkg: "{{ item.name }}"
+    default_release: "testing"
+    state: latest

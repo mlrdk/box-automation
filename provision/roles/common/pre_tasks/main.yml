@@ -1,52 +1,60 @@
-- name: configure sources.list
-  sudo: yes
-  template:
-    src: sources.list.j2
-    dest: /etc/apt/sources.list
-    owner: root
-    group: root
-
-- name: configure sources
-  sudo: yes
-  with_items: "{{ common_sources_list }}"
-  template:
-    src: "{{ item.name }}.list.j2"
-    dest: /etc/apt/sources.list.d/{{ item.name }}.list
-    owner: root
-    group: root
-
-- name: add keys
-  sudo: yes
-  with_items: "{{ common_sources_list }}"
-  apt_key:
-    url: "{{ item.key_url }}"
-    state: present
-
-- name: download kxstudio-repos
-  sudo: yes
-  get_url:
-    url: https://launchpad.net/~kxstudio-debian/+archive/kxstudio/+files/kxstudio-repos_9.2.2~kxstudio1_all.deb
-    dest: /root/kxstudio-repos.deb
-    sha256sum: ff477eda6cba18bdbceb6d7c83f718d8bcd92b4183c164ec55b360d522952904
-
-- name: install kxstudio-repos
-  sudo: yes
-  apt:
-    deb: /root/kxstudio-repos.deb
-
+---
 - name: update apt
-  sudo: yes
+  become: yes
   apt:
     update_cache: yes
     cache_valid_time: 3600
 
-- name: make everything ok
-  sudo: yes
-  command: apt-get install -fy --force-yes
-
-- name: install packages
-  sudo: yes
-  with_items: pretask_packages
+- name: install apt-transport-https
+  become: yes
   apt:
-    pkg: "{{ item.name }}"
+    pkg: apt-transport-https
     state: latest
+
+- name: remove default sources
+  become: yes
+  file:
+    path: /etc/apt/sources.list
+    state: absent
+
+- name: configure security sources
+  become: yes
+  template:
+    src: roles/common/templates/security.list.j2
+    dest: /etc/apt/sources.list.d/security.list
+    owner: root
+    group: root
+
+- name: configure security preferences
+  become: yes
+  template:
+    src: roles/common/templates/security.pref.j2
+    dest: /etc/apt/preferences.d/security.pref
+    owner: root
+    group: root
+
+- name: configure debian sources
+  become: yes
+  with_items: "{{ common_debian_repos }}"
+  template:
+    src: "roles/common/templates/debian.list.j2"
+    dest: "/etc/apt/sources.list.d/{{ item.repo }}.list"
+    owner: root
+    group: root
+
+- name: configure debian preferences
+  become: yes
+  with_items: "{{ common_debian_repos }}"
+  template:
+    src: "roles/common/templates/debian.pref.j2"
+    dest: "/etc/apt/preferences.d/{{ item.repo }}.pref"
+    owner: root
+    group: root
+
+- name: configure extra sources
+  become: yes
+  template:
+    src: roles/common/templates/extra.list.j2
+    dest: /etc/apt/sources.list.d/extra.list
+    owner: root
+    group: root

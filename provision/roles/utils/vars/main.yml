@@ -1,0 +1,13 @@
+---
+util_packages:
+  - name: fakeroot
+  - name: keepassx
+  - name: pv
+  - name: pwgen
+  - name: silversearcher-ag
+  - name: strace
+  - name: suckless-tools
+  - name: sysstat
+  - name: unp
+  - name: unzip
+  - name: wajig

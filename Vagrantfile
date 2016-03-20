@@ -14,6 +14,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.groups = {
         "vagrant" => ["default"],
     }
-
   end
 end
