@@ -10,6 +10,7 @@ eval "$(pyenv init -)"
 pyenv install "${PYTHON_PYENV_VERSION}"
 pyenv local "${PYTHON_PYENV_VERSION}"
 pip install ansible
+apt-get install -y sudo
 ansible-playbook -i provision/inventory/localhost provision/site.yml --ask-sudo-pass
 
 rm -rf "${PYENV_DEST}"
