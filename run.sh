@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export ANSIBLE_HOST_KEY_CHECKING=False
 PATH="${HOME}/.local/bin:${PATH}"
 virtual_env="provision"
 virtual_env_path=~/.virtualenvs/$virtual_env
