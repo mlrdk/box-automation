@@ -11,7 +11,9 @@ vex --make $virtual_env pip install -U pip
 source $virtual_env_path/bin/activate
 pip install -U ansible
 sed -i 's:PermitRootLogin without-password:PermitRootLogin yes:g' /etc/ssh/sshd_config
+systemctl restart ssh
 ansible-playbook -i provision/inventory/localhost provision/site.yml --ask-become-pass --ask-pass
 sed -i 's:PermitRootLogin yes:PermitRootLogin without-password:g' /etc/ssh/sshd_config
+systemctl restart ssh
 
 rm -rf $virtual_env_path
