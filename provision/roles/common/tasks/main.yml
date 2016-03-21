@@ -23,3 +23,14 @@
     pkg: "{{ item.name }}"
     default_release: "jessie-backports"
     state: latest
+
+- name: set timezone
+  become: yes
+  copy:
+    content: 'Europe/Belgrade'
+    dest: /etc/timezone
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - update timezone
