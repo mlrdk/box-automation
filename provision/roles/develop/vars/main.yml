@@ -6,6 +6,7 @@ develop_packages:
   - name: emacs
   - name: exuberant-ctags
   - name: git-core
+  - name: libssl-dev
   - name: node
   - name: python-dev
   - name: python-pip
@@ -13,6 +14,7 @@ develop_packages:
   - name: ruby
   - name: tmux
   - name: vim-gtk
+  - name: zlib1g-dev
 
 develop_jessie_packages:
   - name: virtualbox-5.0
