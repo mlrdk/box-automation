@@ -1,5 +1,6 @@
 ---
 communication_packages:
+  - name: libnotify-bin
   - name: mutt-patched
   - name: notmuch-vim
   - name: offlineimap
