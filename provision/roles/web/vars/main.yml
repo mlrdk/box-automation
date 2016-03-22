@@ -7,3 +7,7 @@ web_packages:
   - name: pepperflashplugin-nonfree
   - name: rtorrent
   - name: xul-ext-adblock-plus
+
+web_chromium_configs:
+  - name: incognito
+  - name: tor

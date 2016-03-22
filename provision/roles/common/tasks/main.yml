@@ -34,3 +34,20 @@
     mode: 0644
   notify:
     - update timezone
+
+- name: keep HOME while sudoing
+  become: yes
+  lineinfile:
+    dest: /etc/sudoers
+    regexp: ^Defaults.*env_keep
+    line: Defaults        env_keep="HOME"
+    insertafter: ^Defaults.*secure_path=
+    state: present
+
+- name: create /mnt/usb
+  become: yes
+  file:
+    path: /mnt/usb
+    owner: root
+    group: root
+    state: directory
