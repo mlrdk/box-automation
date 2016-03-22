@@ -26,8 +26,8 @@
 
 - name: set timezone
   become: yes
-  copy:
-    content: 'Europe/Belgrade'
+  template:
+    src: timezone.j2
     dest: /etc/timezone
     owner: root
     group: root
