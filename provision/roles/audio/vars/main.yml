@@ -17,6 +17,10 @@ audio_packages:
   - name: qtractor
   - name: sox
 
+audio_testing_packages:
+  - name: linux-headers-rt-amd64
+  - name: linux-image-rt-amd64
+
 audio_kxstudio_trusty_packages:
   - name: ardour4
   - name: carla

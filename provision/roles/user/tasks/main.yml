@@ -72,3 +72,12 @@
     dest: "~{{ user }}/{{ item.name }}"
     force: yes
     state: link
+
+- name: setup regular mail checking
+  become: yes
+  become_user: "{{ user }}"
+  cron:
+    name: "mail checking"
+    job: "~/bin/cron.sh"
+    minute: "*"
+    user: "{{ user }}"

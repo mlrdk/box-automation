@@ -6,6 +6,14 @@
     pkg: "{{ item.name }}"
     state: latest
 
+- name: install audio testing packages
+  become: yes
+  with_items: "{{ audio_testing_packages }}"
+  apt:
+    pkg: "{{ item.name }}"
+    default_release: testing
+    state: latest
+
 - name: install audio kxstudio trusty packages
   become: yes
   with_items: "{{ audio_kxstudio_trusty_packages }}"
