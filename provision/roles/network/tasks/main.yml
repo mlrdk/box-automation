@@ -13,3 +13,11 @@
     pkg: "{{ item.name }}"
     default_release: syncthing
     state: latest
+
+- name: configure network manager
+  become: yes
+  template:
+    src: NetworkManager.conf.j2
+    dest: /etc/NetworkManager/NetworkManager.conf
+  notify:
+    - restart network manager
