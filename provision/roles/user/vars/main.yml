@@ -2,7 +2,6 @@
 user_directories:
   - path: Files
   - path: Mail
-  - path: MusE
   - path: mobile
   - path: repos
   - path: secret
@@ -16,3 +15,4 @@ user_config:
   - name: ".gnupg"
   - name: ".netrc"
   - name: ".ssh"
+  - name: "MusE"
