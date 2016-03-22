@@ -10,6 +10,7 @@ audio_packages:
   - name: alsa-tools-gui
   - name: alsa-utils
   - name: dbus-x11
+  - name: jack-tools
   - name: ladish
   - name: laditools
   - name: ncmpcpp
