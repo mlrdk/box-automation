@@ -1,0 +1,5 @@
+---
+- name: alter .gitmodules back
+  become: yes
+  become_user: "{{ user }}"
+  command: "sed -i 's;url = https://github.com/;url = git@github.com:;g' ~{{ user }}/repos/dotfiles/.gitmodules ~{{ user }}/repos/dotfiles/.git/modules/*/config"
