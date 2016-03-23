@@ -14,10 +14,10 @@
     default_release: syncthing
     state: latest
 
-- name: configure network manager
+- name: configure network interfaces
   become: yes
   template:
-    src: NetworkManager.conf.j2
-    dest: /etc/NetworkManager/NetworkManager.conf
+    src: interfaces.j2
+    dest: /etc/network/interfaces
   notify:
     - restart network manager
