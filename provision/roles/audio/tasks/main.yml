@@ -30,6 +30,12 @@
     default_release: lucid
     state: latest
 
+- name: set pulseaudio config
+  become: yes
+  template:
+    src: default.pa.j2
+    dest: /etc/pulse/default.pa
+
 - name: set realtime priority
   become: yes
   template:

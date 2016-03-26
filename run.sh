@@ -10,6 +10,6 @@ pip install --user vex
 vex --make $virtual_env pip install -U pip
 source $virtual_env_path/bin/activate
 pip install -U ansible
-ansible-playbook -i provision/inventory/localhost provision/site.yml --ask-become-pass --ask-pass -c local
+ansible-playbook -i provision/inventory/localhost provision/site.yml -c local
 
 rm -rf ~/.virtualenvs
