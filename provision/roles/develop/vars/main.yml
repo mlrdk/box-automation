@@ -1,13 +1,12 @@
 ---
 develop_packages:
-  - name: arduino
   - name: cmake
   - name: curl
   - name: emacs
   - name: exuberant-ctags
   - name: git-core
   - name: libssl-dev
-  - name: node
+  - name: nodejs
   - name: python-dev
   - name: python-pip
   - name: python-virtualenv
