@@ -5,8 +5,8 @@ develop_packages:
   - name: emacs
   - name: exuberant-ctags
   - name: git-core
+  - name: libjpeg-dev
   - name: libssl-dev
-  - name: nodejs
   - name: python-dev
   - name: python-pip
   - name: python-virtualenv
@@ -16,12 +16,14 @@ develop_packages:
   - name: zlib1g-dev
 
 develop_jessie_packages:
+  - name: nodejs
   - name: virtualbox-5.0
 
 develop_backports_packages:
   - name: docker.io
 
 develop_testing_packages:
+  - name: libncurses5-dev
   - name: vagrant
 
 develop_repositories:
