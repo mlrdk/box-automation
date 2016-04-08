@@ -13,3 +13,11 @@
     pkg: "{{ item.name }}"
     default_release: jessie
     state: latest
+
+- name: install communication nightly packages
+  become: yes
+  with_items: "{{ communication_nightly_packages }}"
+  apt:
+    pkg: "{{ item.name }}"
+    default_release: nightly
+    state: latest

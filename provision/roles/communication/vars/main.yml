@@ -8,3 +8,6 @@ communication_packages:
 communication_jessie_packages:
   - name: weechat
   - name: weechat-scripts
+
+communication_nightly_packages:
+  - name: qtox
