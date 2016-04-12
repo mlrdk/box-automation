@@ -1,5 +1,7 @@
 ---
 communication_packages:
+  - name: gstreamer0.10-tools
+  - name: gstreamer0.10-plugins-good
   - name: libnotify-bin
   - name: mutt-patched
   - name: notmuch-vim
@@ -11,3 +13,12 @@ communication_jessie_packages:
 
 communication_nightly_packages:
   - name: qtox
+
+communication_url_packages:
+  - url: "http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb"
+
+communication_certs:
+  - url: "https://www.thawte.com/roots/thawte_Premium_Server_CA.pem"
+    filename: thawte_Premium_Server_CA.pem
+  - url: "https://raw.githubusercontent.com/katmagic/https-everywhere/master/cert-validity/mozilla/builtin-certs/Thawte_Premium_Server_CA.crt"
+    filename: Thawte_Premium_Server_CA.crt

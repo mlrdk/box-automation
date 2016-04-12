@@ -21,3 +21,17 @@
     pkg: "{{ item.name }}"
     default_release: nightly
     state: latest
+
+- name: install communication url packages
+  become: yes
+  with_items: "{{ communication_url_packages }}"
+  apt:
+    deb: "{{ item.url }}"
+
+- name: install ca certs
+  become: yes
+  with_items: "{{ communication_certs }}"
+  get_url:
+    url: "{{ item.url }}"
+    dest: "/usr/local/share/ca-certificates/{{ item.filename }}"
+    mode: 0644
