@@ -35,3 +35,7 @@
     url: "{{ item.url }}"
     dest: "/usr/local/share/ca-certificates/{{ item.filename }}"
     mode: 0644
+
+- name: update certificates
+  become: yes
+  shell: update-ca-certificates
