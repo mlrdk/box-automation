@@ -23,6 +23,7 @@
     state: latest
 
 - name: download communication url packages
+  with_items: "{{ communication_url_packages }}"
   get_url:
     url: "{{ item.url }}/{{ item.filename }}"
     dest: "/tmp/{{ item.filename }}"
