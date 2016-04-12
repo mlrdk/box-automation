@@ -15,10 +15,11 @@ communication_nightly_packages:
   - name: qtox
 
 communication_url_packages:
-  - url: "http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb"
+  - url: "http://download.cdn.viber.com/cdn/desktop/Linux"
+    filename: viber.deb
 
 communication_certs:
-  - url: "https://www.thawte.com/roots/thawte_Premium_Server_CA.pem"
+  - url: "https://www.thawte.com/roots"
     filename: thawte_Premium_Server_CA.pem
-  - url: "https://raw.githubusercontent.com/katmagic/https-everywhere/master/cert-validity/mozilla/builtin-certs/Thawte_Premium_Server_CA.crt"
+  - url: "https://raw.githubusercontent.com/katmagic/https-everywhere/master/cert-validity/mozilla/builtin-certs"
     filename: Thawte_Premium_Server_CA.crt

@@ -22,17 +22,23 @@
     default_release: nightly
     state: latest
 
+- name: download communication url packages
+  get_url:
+    url: "{{ item.url }}/{{ item.filename }}"
+    dest: "/tmp/{{ item.filename }}"
+    mode: 0644
+
 - name: install communication url packages
   become: yes
   with_items: "{{ communication_url_packages }}"
   apt:
-    deb: "{{ item.url }}"
+    deb: "/tmp/{{ item.filename }}"
 
 - name: install ca certs
   become: yes
   with_items: "{{ communication_certs }}"
   get_url:
-    url: "{{ item.url }}"
+    url: "{{ item.url }}/{{ item.filename }}"
     dest: "/usr/local/share/ca-certificates/{{ item.filename }}"
     mode: 0644
 
