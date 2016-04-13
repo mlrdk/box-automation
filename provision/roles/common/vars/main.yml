@@ -17,7 +17,3 @@ common_debian_repos:
     priority: 900
   - repo: testing
     priority: 750
-  - repo: unstable
-    priority: 50
-  - repo: experimental
-    priority: 1

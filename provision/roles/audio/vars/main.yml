@@ -21,7 +21,7 @@ audio_packages:
   - name: sox
   - name: sweep
 
-audio_testing_packages:
+audio_backports_packages:
   - name: linux-headers-rt-amd64
   - name: linux-image-rt-amd64
 
